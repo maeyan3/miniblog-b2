@@ -1,0 +1,12 @@
+<ul class="list_article">
+  <% if user_signed_in? %>
+  <p class="name">ユーザー：<%= current_user.nickname %>さん</p>
+  <% end %>
+  <% @article.each do |article| %>
+
+    <%= render partial: "article", locals: { article: article } %>
+
+  <% end %>
+  <%= paginate(@article) %>
+</ul>
+
